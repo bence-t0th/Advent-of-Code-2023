@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Day01 {
+class Day01: AOCDay {
     
     var input: [String] {
         return FileOpener.shared.openFile(day: "01").components(separatedBy: "\n")
@@ -16,7 +16,7 @@ class Day01 {
     var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9",
                 "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "0"]
     
-    func solveFirst() -> Int {
+    func partOne() -> Int {
         var res = 0
         for line in input {
             var valueInLine = 0
@@ -28,7 +28,7 @@ class Day01 {
         return res
     }
     
-    func solveSecond() -> Int {
+    func partTwo() -> Int {
         var res = 0
         for line in input {
             res += (findFirstNumber(in: line) + findLastNumber(in: line))
@@ -67,5 +67,5 @@ class Day01 {
     }
 }
 
-print(Day01().solveFirst())
-print(Day01().solveSecond())
+print(Day01().partOne())
+print(Day01().partTwo())
