@@ -48,9 +48,11 @@ class Day04: AOCDay {
         var copies = [Int](repeating: 1, count: input.count + 1)
         copies[0] = 0
         
-        for card in input where card.matchingNumbers > 0 {
-            for i in card.id + 1 ... card.id + card.matchingNumbers {
-                copies[i] += copies[card.id]
+        for game in input {
+            if game.matchingNumbers > 0 {
+                for i in game.id + 1 ... game.id + game.matchingNumbers {
+                    copies[i] += copies[game.id]
+                }
             }
         }
         return copies.reduce(0, +)
